@@ -78,8 +78,8 @@ from customer
 where customer_city != 'Dhaka';
 ---Find customer name and customer city who have accounts with balance more than 7000.
 select customer_no, customer_name 
-from customer 
-where customer_city != 'Dhaka';
+from customer c, account a, depositor d
+where c.customer_no = d.c_no and a.account_no = d.a_no and balance > 7000;
 ---Find customer name and customer city who have accounts with balance more than 7000 and do not live in Khulna.
 select customer_name, customer_city 
 from customer c, account a, depositor d 
